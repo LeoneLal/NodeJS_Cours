@@ -55,13 +55,32 @@ function listPosts() {
 
 function removeFromList(arg) {    
     const tab = listPosts();
-     const result = tab.filter(post => post.title !== arg );
-     fs.writeFile('posts.json', JSON.stringify(result), 'utf8', (err) =>{
-        if(err) throw err;
+    let exist = false
+    tab.forEach(post => {
+        if (post.title !== arg){
+            exist = false;
+        }else {
+            exist = true
+        }
+     });
+     if(exist === false){
+         console.log("Ce post n'existe pas")
+     }else {
+        const result = tab.filter(post => post.title !== arg );
+        fs.writeFile('posts.json', JSON.stringify(result), 'utf8', (err) =>{
+           if(err) throw err;
+        });
         console.log("Succesfully removed");
-    });
-     console.log(result)
+        console.log(result)
+     }
+}
+
+function readOne(arg) {
+    const tab = listPosts();
+
+    
+
 }
 
 
-module.exports = {addPost, listPosts, removeFromList}
+module.exports = {addPost, listPosts, removeFromList, readOne}
