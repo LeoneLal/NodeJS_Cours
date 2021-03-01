@@ -22,5 +22,8 @@ else if (cmd[2] === "list") {
         console.log(`Title: ${post.title}`);
         console.log(`Body: ${post.body}`);
     });
+} 
+else if (cmd[2] === "remove") {
+    post.removeFromList(cmd[3]);
 }
 

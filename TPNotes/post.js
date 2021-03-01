@@ -53,4 +53,15 @@ function listPosts() {
     return  JSON.parse(fs.readFileSync('./posts.json', 'utf8'));
 }
 
-module.exports = {addPost, listPosts}
+function removeFromList(arg) {    
+    const tab = listPosts();
+     const result = tab.filter(post => post.title !== arg );
+     fs.writeFile('posts.json', JSON.stringify(result), 'utf8', (err) =>{
+        if(err) throw err;
+        console.log("Succesfully removed");
+    });
+     console.log(result)
+}
+
+
+module.exports = {addPost, listPosts, removeFromList}
