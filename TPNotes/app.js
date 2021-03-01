@@ -26,4 +26,8 @@ else if (cmd[2] === "list") {
 else if (cmd[2] === "remove") {
     post.removeFromList(cmd[3]);
 }
+else if (cmd[2] === "read") {
+    post.readOne(cmd[3]);
+}
+
 

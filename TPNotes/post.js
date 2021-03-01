@@ -77,9 +77,16 @@ function removeFromList(arg) {
 
 function readOne(arg) {
     const tab = listPosts();
-
-    
-
+    let exist = false
+    tab.forEach(post => {
+        if (post.title === arg || post.body === arg){
+            console.log(`Titre : ${post.title} , Body : ${post.body}`)
+            exist = true
+        }
+    });
+    if (exist === false) {
+        console.log("Ce post n'existe pas")
+    }
 }
 
 
