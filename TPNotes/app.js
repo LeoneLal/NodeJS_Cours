@@ -1,6 +1,5 @@
 // TP Partie 1 fonction addPost
-const add = require('./addPost.js')
-const list = require('./listPosts.js')
+const post = require('./post.js')
 const cmd = process.argv;
 
 const commandes = {
@@ -13,9 +12,9 @@ const commandes = {
 console.log(`${commandes[cmd[2]] || "unknow command"}`)
 
 if(cmd[2] == "add"){
-    add.addPost(cmd[3], cmd[4]) 
+    post.addPost(cmd[3], cmd[4]) 
 }
 else if (cmd[2] == "list") {
-    list.listPosts() 
+    post.listPosts() 
 }
 
