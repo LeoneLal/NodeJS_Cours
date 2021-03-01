@@ -6,7 +6,7 @@ function addPost(titre, corp) {
         body: corp
     }
     
-    fs.writeFile('posts.json', JSON.stringify(data), 'utf8', (err, data) =>{
+    fs.appendFile('posts.json', JSON.stringify(data), 'utf8', (err, data) =>{
         if(err) throw err;
         console.log(data)
     })
